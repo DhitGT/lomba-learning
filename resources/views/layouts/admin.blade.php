@@ -8,15 +8,23 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
      <script src="https://cdn.tailwindcss.com"></script>
        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-        <style>
+       <style>
             body {
                 background: url('/bg-grid.svg') no-repeat center center fixed;
                 background-size: cover;
             }
         </style>
-
 </head>
 <body style="background-color:#111827; color:white;">
+@php
+        $user = auth()->user();
+    @endphp
+
+    @if($user && $user->role != 'operator')
+        <script>
+            window.location.href = "{{ route('home') }}";
+        </script>
+    @endif
     <header>
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -39,12 +47,7 @@
                 <a href="/create" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Create</a>
                 </li>
                 <li>
-                    @if(auth()->user() && auth()->user()->role == "operator")
-                <a href="/admin/dashboard" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Dashboard</a>
-                </li>
-                @endif
-                <li>
-                <a href="{{ auth()->user() ?  '/profile/'. auth()->user()->username : '/login' }}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">{{ auth()->user() ?  'Profile' : 'login'}}</a>
+                <a href="/profile/janedoe" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Profile</a>
                 </li>
             </ul>
             </div>
@@ -54,32 +57,7 @@
     <main style="overflow-x:hidden">
         @yield('content')
     </main>
-        <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
-            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-                <div class="sm:flex sm:items-center sm:justify-between">
-                    <a href="" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="S-Learn Logo" />
-                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">S-Learn</span>
-                    </a>
-                    <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-                        <li>
-                            <a href="#" class="hover:underline me-4 md:me-6">About</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:underline">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="" class="hover:underline">S-Learn</a>. All Rights Reserved.</span>
-            </div>
-        </footer
+
     <script src="{{ asset('js/app.js') }}"></script>
       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>

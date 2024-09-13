@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\ModulModel;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -55,15 +57,20 @@ class UserController extends Controller
         ],
     ];
 
-    public function show($username)
+     public function show($username)
     {
         // Fetch user data based on username
-        if (!array_key_exists($username, $this->users)) {
+        $user = User::where('username', $username)->first();
+
+        // If user not found, abort with a 404 error
+        if (!$user) {
             abort(404, 'User not found');
         }
 
-        $user = (object) $this->users[$username];
+        // Fetch modules based on user ID
+        $modules = ModulModel::where('userId', $user->id)->get();
 
-        return view('profile', compact('user'));
+        // Pass user and modules data to the view
+        return view('profile', compact('user', 'modules'));
     }
 }

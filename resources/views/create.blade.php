@@ -1,5 +1,3 @@
-<!-- resources/views/moduls/create.blade.php -->
-
 @extends('layouts.main')
 
 @section('title', 'Create Module')
@@ -34,23 +32,35 @@
                 @enderror
             </div>
 
-
             <div class="mb-4">
-                <label for="image" class="block text-sm font-medium text-gray-200">Image Cover</label>
-                <input type="file" id="image" name="image" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                <label for="imageCover" class="block text-sm font-medium text-gray-200">Image Cover</label>
+                <input type="file" id="imageCover" name="imageCover" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
                 @error('image')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
-
             <div class="mb-4">
-                <label for="body" class="block text-sm font-medium text-gray-200">Body</label>
-                <textarea id="body" name="body" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">{{ old('body') }}</textarea>
-                @error('body')
+                <label for="content" class="block text-sm font-medium text-gray-200">Body</label>
+                <textarea id="content" name="content" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">{{ old('content') }}</textarea>
+                @error('content')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
+
+            <!-- Category Field -->
+            <div class="mb-4">
+                <label for="category" class="block text-sm font-medium text-gray-200">Category</label>
+                <select id="category" name="category" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                    @foreach($categories as $category)
+                        <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                    @endforeach
+                </select>
+                @error('category')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
 
             <button type="submit" class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Create Module
@@ -63,7 +73,7 @@
 <script src="https://cdn.tiny.cloud/1/1vh79zsuthzr11yw9v9to8d2vdh565ob17lomk5ldjjot9sv/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     tinymce.init({
-        selector: '#body',
+        selector: '#content',
         plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount',
         toolbar: 'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | outdent indent | bullist numlist | removeformat | help',
         content_css: 'https://www.tiny.cloud/css/codepen.min.css',
