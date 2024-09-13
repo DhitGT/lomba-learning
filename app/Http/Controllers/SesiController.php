@@ -12,26 +12,28 @@ class SesiController extends Controller
         return view('login');
     }
 
-    function login(Request $request){
-
-        // pengecekan account 
+    function login(Request $request)
+    {
+        // Pengecekan account
         $infoLogin = [
-            'email' => $request -> email,
-            'password' => $request -> password,
+            'email' => $request->email,
+            'password' => $request->password,
         ];
-        if(Auth::attempt(credentials: $infoLogin)){
-            if(Auth::user()->role == 'operator'){
-                return redirect('operator');
-            } else {
-                return redirect('user');
-            }
+
+        if (Auth::attempt($infoLogin)) {
+            // Redirect ke halaman home jika berhasil login
+            return redirect()->route('home');
         } else {
-            return redirect('') -> withErrors('username & password tidak sesuai') -> withInput();
+            // Redirect ke halaman login dengan error jika gagal login
+            return redirect()->route('login')
+                ->withErrors('Username & password tidak sesuai')
+                ->withInput();
         }
     }
 
-    function logout(){
+    function logout()
+    {
         Auth::logout();
-        return redirect('/'); 
+        return redirect()->route('login');
     }
 }
