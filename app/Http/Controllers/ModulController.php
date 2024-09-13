@@ -75,7 +75,7 @@ public function create()
             'image' => 'required|url',
         ]);
 
-        Modul::create($validatedData);
+        // Modul::create($validatedData);
 
 
         return redirect()->route('moduls.create')->with('success', 'Module created successfully!');
