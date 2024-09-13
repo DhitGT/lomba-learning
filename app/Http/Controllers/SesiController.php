@@ -14,7 +14,7 @@ class SesiController extends Controller
 
     function login(Request $request){
 
-        // pengecekan account 
+        // pengecekan account
         $infoLogin = [
             'email' => $request -> email,
             'password' => $request -> password,
@@ -32,6 +32,6 @@ class SesiController extends Controller
 
     function logout(){
         Auth::logout();
-        return redirect('/'); 
+        return redirect('/');
     }
 }
