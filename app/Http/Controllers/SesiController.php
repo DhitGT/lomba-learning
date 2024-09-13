@@ -12,15 +12,9 @@ class SesiController extends Controller
         return view('login');
     }
 
-<<<<<<< HEAD
-    function login(Request $request){
-
-        // pengecekan account
-=======
     function login(Request $request)
     {
         // Pengecekan account
->>>>>>> 70d5e5e307d518b08092af5c9356a1fb6a7ea3e9
         $infoLogin = [
             'email' => $request->email,
             'password' => $request->password,
@@ -40,10 +34,6 @@ class SesiController extends Controller
     function logout()
     {
         Auth::logout();
-<<<<<<< HEAD
-        return redirect('/');
-=======
         return redirect()->route('login');
->>>>>>> 70d5e5e307d518b08092af5c9356a1fb6a7ea3e9
     }
 }
