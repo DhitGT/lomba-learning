@@ -14,21 +14,13 @@ Route::get('/', function () {
 // menampilkan halaman login
 Route::get('/login', function () {
     return view('login');
-});
-
-
-
-
-
-
-
-
+})->name('login');
 
 
 
 // menampilkan login jika user belum pernah pernah login
 Route::middleware(['guest'])->group(function (){
-    Route::get('/', [SesiController::class, 'index'])->name('login');
+    Route::get('/', [SesiController::class, 'index']);
     Route::post('/', [SesiController::class, 'login']);
 });
 
