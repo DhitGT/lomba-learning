@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AttendanceKontroller;
 use App\Http\Controllers\ModulController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\RegisterController;
@@ -28,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/{username}', [UserController::class, 'show'])->name('profile.show');
     Route::get('/operator', [AdminController::class, 'operator']);
     Route::get('/logout', [SesiController::class, 'logout'])->name('logout');
+    Route::get('/admin/kehadiran', [AttendanceKontroller::class, 'kehadiran'])->name('attendance.kehadiran');
 });
 
 
