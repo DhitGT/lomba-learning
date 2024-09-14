@@ -18,4 +18,10 @@ class AdminController extends Controller
         echo "<h1>". Auth::user()->name ."</h1>";
         echo "<a href='/logout'> Logout </a>";
     }
+    
+    function guru(){
+        echo "Hello, Welcome Guru";
+        echo "<h1>". Auth::user()->name ."</h1>";
+        echo "<a href='/logout> Logout </a>";
+    }
 }
