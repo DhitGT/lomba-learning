@@ -23,6 +23,7 @@ Route::get('/module/{id}', [ModulController::class, 'show'])->name('module.show'
 // Halaman yang hanya bisa diakses jika user sudah login
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [ModulController::class, 'home'])->name('home');
+    Route::get('/course', [ModulController::class, 'course'])->name('course');
     Route::get('/create', [ModulController::class, 'create'])->name('moduls.create');
     Route::post('/moduls/create', [ModulController::class, 'store'])->name('moduls.store');
     Route::get('/profile/{username}', [UserController::class, 'show'])->name('profile.show');

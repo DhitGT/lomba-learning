@@ -15,6 +15,14 @@ class ModulController extends Controller
         // Pass the data to the view
         return view('home', compact('modules'));
     }
+  public function course()
+    {
+        // Fetch data from the database
+        $modules = ModulModel::where("status",'accepted')->get(); // Or use appropriate query to get the data you need
+
+        // Pass the data to the view
+        return view('course', compact('modules'));
+    }
 
 public function create()
 {
