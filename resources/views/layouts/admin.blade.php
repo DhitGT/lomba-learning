@@ -20,7 +20,7 @@
         $user = auth()->user();
     @endphp
 
-    @if($user && $user->role != 'operator')
+    @if($user && $user->role != 'admin')
         <script>
             window.location.href = "{{ route('home') }}";
         </script>

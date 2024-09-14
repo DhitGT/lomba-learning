@@ -18,7 +18,6 @@ Route::middleware(['guest'])->group(function () {
 });
 
 
-Route::get('/module/{id}', [ModulController::class, 'show'])->name('module.show');
 
 // Halaman yang hanya bisa diakses jika user sudah login
 Route::middleware(['auth'])->group(function () {
@@ -39,8 +38,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 });
 
 
-Route::prefix('course')->group(function () {
+Route::prefix('course')->middleware('auth')->group(function () {
     Route::get('/add', [ModulController::class, 'create'])->name('course.add');
+    Route::get('/{id}', [ModulController::class, 'show'])->name('module.show');
 });
 
 Route::get('/register', function () {
@@ -53,6 +53,6 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 //add user form admin
 Route::get('/admin/add', function () {
     return view('admin.add-user');
-})->name('admin.add');
+})->middleware('auth')->name('admin.add');
 
-Route::post('/admin/store', [RegisterController::class, 'addFromAdmin'])->name('add-from-admin');
+Route::post('/admin/store', [RegisterController::class, 'addFromAdmin'])->middleware('auth')->name('add-from-admin');

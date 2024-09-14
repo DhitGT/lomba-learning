@@ -22,17 +22,17 @@
                     Learning How To Code from experts, and Share your knowledge with others
                 </p>
                 <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdH5ainp7B7cj1kLM4UuAsTtGDs5U2RwPFDc1kRVJUoPLDn9g/viewform" target="_blank"
+                    <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSdH5ainp7B7cj1kLM4UuAsTtGDs5U2RwPFDc1kRVJUoPLDn9g/viewform" target="_blank"
                         class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-[#80AF81] hover:bg-[#508D4E]">
                         <span class="text-white">Sharing</span>
                         <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                         </svg>
-                    </a>
-                    <a href="/logout"
+                    </a> -->
+                    <!-- <a href="/logout"
                         class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-[#80AF81] rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
-                        <span class="text-[#80AF81]">Logout</span>
-                    </a>
+                        <span class="text-[#80AF81]">Learn More</span>
+                    </a> -->
                 </div>
             </div>
         </section>
@@ -93,7 +93,7 @@
         <!-- card untuk modul -->
         <div class="row mx-auto max-w-[80vw] my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             @foreach ($modules as $module)
-            <a href="/module/{{ $module->id }}" class="group relative block overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <a href="/course/{{ $module->id }}" class="group relative block overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                 <img src="{{ '/storage/' . $module->imageCover }}" alt="{{ $module->title }}" class="h-36 w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110" />
                 <div class="p-6">
                     <h5 class="text-lg font-semibold text-gray-900 dark:text-white">{{ $module->title }}</h5>

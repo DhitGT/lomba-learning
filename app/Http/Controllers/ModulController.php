@@ -77,7 +77,7 @@ public function create()
      public function show($id)
     {
         // Retrieve the module by its ID
-        $module = ModulModel::findOrFail($id);
+        $module = CourseModel::findOrFail($id);
 
         // Pass the module data to the view
         return view('module.show', compact('module'));
