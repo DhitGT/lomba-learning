@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('attendance', function (Blueprint $table) {
             $table->integer('attendance_id')->primary()->autoIncrement();
             $table->integer('course_id');
-            $table->string('student_id');
-            $table->integer('date');
+            $table->integer('student_id');
+            $table->date('date');
             $table->enum('status', ['present', 'absent']);
+             $table->timestamps();
         });
     }
 

@@ -29,8 +29,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/{username}', [UserController::class, 'show'])->name('profile.show');
     Route::get('/operator', [AdminController::class, 'operator']);
     Route::get('/logout', [SesiController::class, 'logout'])->name('logout');
-    Route::get('/admin/kehadiran', [AttendanceKontroller::class, 'kehadiran'])->name('attendance.kehadiran');
 });
+
+Route::get('/admin/kehadiran', [AttendanceKontroller::class, 'kehadiran'])->name('attendance.kehadiran');
+Route::post('/kehadiran/create', [AttendanceKontroller::class, 'store'])->name('kehadiran.store');
+
 
 
 Route::prefix('admin')->middleware('auth')->group(function () {

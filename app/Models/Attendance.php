@@ -9,7 +9,7 @@ class Attendance extends Model
 {
     use HasFactory;
 
-    protected $table = 'kehadiran';
+    protected $table = 'attendance';
     // protected $primaryKey = 'id';
 
     // Add this if you want to specify which attributes are mass assignable

@@ -18,8 +18,8 @@ class DummyUsersSeeder extends Seeder
                 'name' => 'Adit',
                 'username' => 'Dheep',
                 'email' => 'adit123@gmail.com',
-                'password' => bcrypt('123456'),
-                'role' => 'operator'
+                'password' => bcrypt('qweqwe'),
+                'role' => 'admin'
             ],
             [
                 'name' => 'Rafy',
@@ -27,12 +27,19 @@ class DummyUsersSeeder extends Seeder
                 'email' => 'rafy123@gmail.com',
                 'password' => bcrypt('123456'),
                 'role' => 'user'
-            ], 
+            ],
             [
                 'name' => 'Dedy (Teacher)',
                 'username' => 'Dedy',
                 'email' => 'dedy123@gmail.com',
-                'password' => bcrypt('123456'),
+                'password' => bcrypt('qweqwe'),
+                'role' => 'guru'
+            ],
+            [
+                'name' => 'Ramdani',
+                'username' => 'Ramdani',
+                'email' => 'ramdani@gmail.com',
+                'password' => bcrypt('qweqwe'),
                 'role' => 'guru'
             ]
         ];

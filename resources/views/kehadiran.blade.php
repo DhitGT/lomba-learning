@@ -13,30 +13,50 @@
             </div>
         @endif
 
-        <form action="{{ route('kehadiran.data') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('kehadiran.store') }}" method="POST" enctype="multipart/form-data">
+@csrf
+             <div class="mb-4">
+                <label for="course" class="block text-sm font-medium text-gray-200">course</label>
+                <select id="course" name="course" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                    @foreach($courses as $course)
+                        <option value="{{ $course['id'] }}">{{ $course['name'] }}</option>
+                    @endforeach
+                </select>
+                @error('course')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
 
-            <div class="mb-4">
-                <label for="course" class="block text-sm font-medium text-gray-200">Course</label>
-                <input type="date" id="course" name="course" value="{{ old('course') }}" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+             <div class="mb-4">
+                <label for="user" class="block text-sm font-medium text-gray-200">Student </label>
+                <select id="user" name="user" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                    @foreach($users as $user)
+                        <option value="{{ $user['id'] }}">{{ $user['name'] }}</option>
+                    @endforeach
+                </select>
+                @error('user')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-200">Name Student</label>
-                <input type="date" id="name" name="name" value="{{ old('name') }}" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                <label for="date" class="block text-sm font-medium text-gray-200">Date</label>
+                <input type="date" id="date" name="date" value="{{ old('date') }}" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
             </div>
 
-            <div class="mb-4">
-                <label for="start_date" class="block text-sm font-medium text-gray-200">Date</label>
-                <input type="date" id="start_date" name="start_date" value="{{ old('start_date') }}" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
-            </div>
-
-            <div class="mb-4">
-                <label for="end_date" class="block text-sm font-medium text-gray-200">Status</label>
-                <input type="date" id="end_date" name="end_date" value="{{ old('end_date') }}" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+             <div class="mb-4">
+                <label for="status" class="block text-sm font-medium text-gray-200">Status</label>
+                <select id="status" name="status" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                        <option value="present">Present</option>
+                        <option value="Absent">Absent</option>
+                </select>
+                @error('status')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             <button type="submit" class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Create Module
+                Submit
             </button>
         </form>
     </div>
