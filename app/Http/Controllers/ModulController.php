@@ -70,18 +70,23 @@ public function create()
             'end_date' => $request->input('end_date'),
         ]);
 
-        // Redirect with success message
         return redirect()->route('home')->with('success', 'Module created successfully.');
     }
 
      public function show($id)
     {
-        // Retrieve the module by its ID
+
         $module = CourseModel::findOrFail($id);
 
         // Pass the module data to the view
         return view('module.show', compact('module'));
     }
+    //  public function delete($id)
+    // {
+
+    //     $module = CourseModel::findOrFail($id)->delete();
+    //     return view('home');
+    // }
 
 }
 

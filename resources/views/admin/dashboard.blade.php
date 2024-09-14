@@ -35,7 +35,7 @@
                             @method('PUT')
                             <button type="submit" class="text-green-500 hover:text-green-700">edit</button>
                         </form> -->
-                        <form action="{{ route('admin.post.reject', $user->id) }}" method="POST" class="inline ml-4">
+                        <form  method="POST" class="inline ml-4">
                             @csrf
                             @method('PUT')
                             <button type="submit" class="text-red-500 hover:text-red-700">hapus</button>
@@ -77,9 +77,9 @@
                             @method('PUT')
                             <button type="submit" class="text-green-500 hover:text-green-700">edit</button>
                         </form> -->
-                        <form action="{{ route('admin.post.reject', $c->id) }}" method="POST" class="inline ml-4">
+                        <form  method="POST" class="inline ml-4">
                             @csrf
-                            @method('PUT')
+                            @method('POST')
                             <button type="submit" class="text-red-500 hover:text-red-700">hapus</button>
                         </form>
                     </td>

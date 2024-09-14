@@ -46,6 +46,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 Route::prefix('course')->middleware('auth')->group(function () {
     Route::get('/add', [ModulController::class, 'create'])->name('course.add');
     Route::get('/{id}', [ModulController::class, 'show'])->name('module.show');
+    // Route::post('/delete/{id}', [ModulController::class, 'delete'])->name('module.delete');
 });
 
 Route::get('/register', function () {
