@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\ModulModel;
+use App\Models\CourseModel;
 use Illuminate\Http\Request;
 
 class OperatorController extends Controller
@@ -13,8 +14,9 @@ class OperatorController extends Controller
     {
         // Fetch pending posts
         $users = User::get();
+        $course = CourseModel::get();
 
-        return view('admin.dashboard', compact('users'));
+        return view('admin.dashboard', compact('users','course'));
     }
 
     public function acceptPost($id)

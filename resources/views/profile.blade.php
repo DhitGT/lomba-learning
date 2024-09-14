@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <h3 class="text-lg font-semibold mb-4 mt-8">Modules Created</h3>
+        <!-- <h3 class="text-lg font-semibold mb-4 mt-8">Modules Created</h3> -->
         <div class="row mx-auto max-w-[80vw] my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($modules as $module)
             <div data-aos="fade-down" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col">

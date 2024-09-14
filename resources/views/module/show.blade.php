@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.noftr')
 
 @section('title', $module->name)
 

@@ -3,9 +3,9 @@
 @section('title', 'Home Page')
 
 @section('content')
-<div class="container">
+<div class="container" >
     <!-- jumbo -->
-    <div>
+    <div >
         <section class="relative min-h-[100vh] min-w-[100vw] pt-24 md:pt-0 transition-opacity duration-500 ease-in-out">
             <div class="absolute inset-0 bg-black opacity-75 z-10"></div>
 
@@ -94,9 +94,9 @@
         <div class="row mx-auto max-w-[80vw] my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             @foreach ($modules as $module)
             <a href="/course/{{ $module->id }}" class="group relative block overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                <img src="{{ '/storage/' . $module->imageCover }}" alt="{{ $module->title }}" class="h-36 w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110" />
+                <!-- <img src="{{ '/storage/' . $module->imageCover }}" alt="{{ $module->title }}" class="h-36 w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110" /> -->
                 <div class="p-6">
-                    <h5 class="text-lg font-semibold text-gray-900 dark:text-white">{{ $module->title }}</h5>
+                    <h5 class="text-lg font-semibold text-gray-900 dark:text-white">{{ $module->name }}</h5>
                     <p class="text-sm font-medium text-gray-600 dark:text-gray-400">{{ $module->description }}</p>
                 </div>
 
