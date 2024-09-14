@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\ModulModel;
+use App\Models\CourseModel;
 use Illuminate\Http\Request;
 
 class ModulController extends Controller
@@ -10,7 +12,7 @@ class ModulController extends Controller
   public function home()
     {
         // Fetch data from the database
-        $modules = ModulModel::where("status",'accepted')->get(); // Or use appropriate query to get the data you need
+        $modules = CourseModel::get(); // Or use appropriate query to get the data you need
 
         // Pass the data to the view
         return view('home', compact('modules'));
@@ -37,36 +39,35 @@ public function create()
         ['id' => 7, 'name' => 'Entertainment']
     ];
 
-    return view('create', compact('categories'));
+    $teachers = User::where('role','guru')->get();
+
+    return view('course.create', compact('teachers'));
 }
 
     public function store(Request $request)
     {
         // Validate the request
         $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'content' => 'nullable|string',
-            'imageCover' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'category' => 'required|integer', // Validate that category is an integer and exists
+            'title' => 'required',
+            'description' => 'required',
+            'teacher' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
         ]);
 
-        // Handle file upload
-        if ($request->hasFile('imageCover')) {
-            $imagePath = $request->file('imageCover')->store('images', 'public');
-        } else {
-            $imagePath = null;
-        }
+        // if ($request->hasFile('imageCover')) {
+        //     $imagePath = $request->file('imageCover')->store('images', 'public');
+        // } else {
+        //     $imagePath = null;
+        // }
 
         // Create a new module entry
-        $modul = ModulModel::create([
-            'userId' => auth()->id(), // Assuming you are using authentication
-            'title' => $request->input('title'),
+        $modul = CourseModel::create([
+            'name' => $request->input('title'),
             'description' => $request->input('description'),
-            'content' => $request->input('content'),
-            'imageCover' => $imagePath,
-            'category' => $request->input('category'),
-            'status' => 'pending' // Store the selected category ID
+            'teacher_id' =>  $request->input('teacher'), // Assuming you are using authentication
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
         ]);
 
         // Redirect with success message

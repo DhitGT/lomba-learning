@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\ModulModel;
 use Illuminate\Http\Request;
 
@@ -11,9 +12,9 @@ class OperatorController extends Controller
      public function dashboard()
     {
         // Fetch pending posts
-        $posts = ModulModel::get();
+        $users = User::get();
 
-        return view('admin.dashboard', compact('posts'));
+        return view('admin.dashboard', compact('users'));
     }
 
     public function acceptPost($id)

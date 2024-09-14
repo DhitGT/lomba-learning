@@ -16,7 +16,7 @@
 
             <div class="relative z-20 px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
                 <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-                    Share and Learn
+                    Learning Manajement System
                 </h1>
                 <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
                     Learning How To Code from experts, and Share your knowledge with others
@@ -44,7 +44,7 @@
         </div>
     </div>
     <!-- asking user -->
-    <div class="min-w-[100vw]">
+    <!-- <div class="min-w-[100vw]">
         <div class="flex max-w-fit flex-col mx-auto my-11">
             <p data-aos="fade-up" class="my-3 text-3xl font-semibold leading-relaxed text-gray-900 dark:text-white text-center">Hello, what do you want to do today?</p>
             <div class="flex gap-3 justify-between">
@@ -58,11 +58,11 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- asking user -->
 
     <!-- learning module -->
-    <div class="min-w-[100vw]">
+    <div class="min-w-[100vw] my-4">
         <div class="d-flex">
             <form class="max-w-[80vw] mx-auto">
                 <div class="flex">

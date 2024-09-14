@@ -13,8 +13,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('teacher_id');
-            $table->text('start_date');
-            $table->integer('end_date');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }

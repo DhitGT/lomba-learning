@@ -38,8 +38,21 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::put('/post/{id}/reject', [OperatorController::class, 'rejectPost'])->name('admin.post.reject');
 });
 
+
+Route::prefix('course')->group(function () {
+    Route::get('/add', [ModulController::class, 'create'])->name('course.add');
+});
+
 Route::get('/register', function () {
-    return view('register'); // Adjust view path if necessary
+    return view('register');
 })->name('register.show');
 
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
+
+
+//add user form admin
+Route::get('/admin/add', function () {
+    return view('admin.add-user');
+})->name('admin.add');
+
+Route::post('/admin/store', [RegisterController::class, 'addFromAdmin'])->name('add-from-admin');

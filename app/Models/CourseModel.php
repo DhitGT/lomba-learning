@@ -13,12 +13,11 @@ class CourseModel extends Model
     // protected $primaryKey = 'id';
 
     // Add this if you want to specify which attributes are mass assignable
-    // protected $fillable = [
-    //     'userId',
-    //     'title',
-    //     'description',
-    //     'content',
-    //     'imageCover',
-    //     'category',
-    // ];
+    protected $fillable = [
+        'name',
+        'description',
+        'teacher_id',
+        'start_date',
+        'end_date',
+    ];
 }
