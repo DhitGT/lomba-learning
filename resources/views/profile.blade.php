@@ -33,9 +33,18 @@
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                         {{ $module->description }}
                     </p>
+                    <br>
+                   
                 </div>
             </div>
             @endforeach
+            
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <a href="/logout">
+                    Logout
+                </a>
+            </p>
+            
         </div>
     </div>
 </div>
