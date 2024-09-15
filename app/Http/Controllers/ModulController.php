@@ -55,13 +55,6 @@ public function create()
             'end_date' => 'required',
         ]);
 
-        // if ($request->hasFile('imageCover')) {
-        //     $imagePath = $request->file('imageCover')->store('images', 'public');
-        // } else {
-        //     $imagePath = null;
-        // }
-
-        // Create a new module entry
         $modul = CourseModel::create([
             'name' => $request->input('title'),
             'description' => $request->input('description'),

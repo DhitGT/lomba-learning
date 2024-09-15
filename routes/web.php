@@ -29,10 +29,25 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/{username}', [UserController::class, 'show'])->name('profile.show');
     Route::get('/operator', [AdminController::class, 'operator']);
     Route::get('/logout', [SesiController::class, 'logout'])->name('logout');
+    Route::get('/admin/kehadiran', [AttendanceKontroller::class, 'kehadiran'])->name('attendance.kehadiran');
+    Route::post('/kehadiran/create', [AttendanceKontroller::class, 'store'])->name('kehadiran.store');
+
+    Route::prefix('course')->middleware('auth')->group(function () {
+        Route::get('/add', [ModulController::class, 'create'])->name('course.add');
+        Route::get('/edit', [ModulController::class, 'create'])->name('course.add');
+        Route::get('/{id}', [ModulController::class, 'show'])->name('module.show');
+        // Route::post('/delete/{id}', [ModulController::class, 'delete'])->name('module.delete');
+    });
+
+    //add user form admin
+    Route::get('/admin/add', function () {
+        return view('admin.add-user');
+    })->middleware('auth')->name('admin.add');
+
+    Route::post('/admin/store', [RegisterController::class, 'addFromAdmin'])->middleware('auth')->name('add-from-admin');
+
 });
 
-Route::get('/admin/kehadiran', [AttendanceKontroller::class, 'kehadiran'])->name('attendance.kehadiran');
-Route::post('/kehadiran/create', [AttendanceKontroller::class, 'store'])->name('kehadiran.store');
 
 
 
@@ -43,11 +58,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 });
 
 
-Route::prefix('course')->middleware('auth')->group(function () {
-    Route::get('/add', [ModulController::class, 'create'])->name('course.add');
-    Route::get('/{id}', [ModulController::class, 'show'])->name('module.show');
-    // Route::post('/delete/{id}', [ModulController::class, 'delete'])->name('module.delete');
-});
 
 Route::get('/register', function () {
     return view('register');
@@ -56,9 +66,3 @@ Route::get('/register', function () {
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 
-//add user form admin
-Route::get('/admin/add', function () {
-    return view('admin.add-user');
-})->middleware('auth')->name('admin.add');
-
-Route::post('/admin/store', [RegisterController::class, 'addFromAdmin'])->middleware('auth')->name('add-from-admin');

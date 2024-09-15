@@ -10,8 +10,8 @@
 
     <!-- Table -->
     <div class="overflow-x-auto">
-        <table class="min-w-full bg-white border border-gray-200 rounded-lg">
-            <thead class="bg-gray-100 border-b">
+        <table class="min-w-full bg-white border p-6  border-gray-200 rounded-lg">
+            <thead class="bg-gray-100 rounded-xl     border-b">
                 <tr>
                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-900">ID</th>
                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-900">Name</th>
