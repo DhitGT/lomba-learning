@@ -46,7 +46,7 @@ public function create()
 
     public function store(Request $request)
     {
-        // Validate the request
+
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -58,7 +58,7 @@ public function create()
         $modul = CourseModel::create([
             'name' => $request->input('title'),
             'description' => $request->input('description'),
-            'teacher_id' =>  $request->input('teacher'), 
+            'teacher_id' =>  $request->input('teacher'),
             'start_date' => $request->input('start_date'),
             'end_date' => $request->input('end_date'),
         ]);
