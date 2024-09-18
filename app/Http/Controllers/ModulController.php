@@ -71,7 +71,7 @@ public function create()
 
         $module = CourseModel::findOrFail($id);
 
-        // Pass the module data to the view
+
         return view('module.show', compact('module'));
     }
     //  public function delete($id)
