@@ -74,12 +74,7 @@ public function create()
 
         return view('module.show', compact('module'));
     }
-    //  public function delete($id)
-    // {
 
-    //     $module = CourseModel::findOrFail($id)->delete();
-    //     return view('home');
-    // }
 
 }
 
